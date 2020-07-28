@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import PodcastService from '../services/podcasts.service';
 import { PodcastsInterface } from '../interfaces/podcasts.interface';
-import { CreatePodcastDto } from '../dtos/podcasts.dto';
+import { CreatePodcastDto, FindPodcastDto } from '../dtos/podcasts.dto';
 
 class PodcastsController {
   private podcastsService = new PodcastService();
@@ -11,8 +11,9 @@ class PodcastsController {
     res: Response,
     next: NextFunction
   ) => {
+    const filters: FindPodcastDto = req.query ;
     try {
-      const allPodcasts: PodcastsInterface[] = await this.podcastsService.findAllPodcasts();
+      const allPodcasts: PodcastsInterface[] = await this.podcastsService.findAllPodcasts(filters);
       res.status(200).json({ data: allPodcasts, message: 'findAll' });
     } catch (error) {
       next(error);

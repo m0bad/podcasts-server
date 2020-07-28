@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsNumber, IsString } from 'class-validator';
 
 export class CreatePodcastDto {
   @IsString()
@@ -12,4 +12,15 @@ export class CreatePodcastDto {
 
   @IsNumber()
   public numOfListeners?: number;
+}
+
+export class FindPodcastDto {
+  @IsBoolean()
+  public isFeatured?: boolean;
+
+  @IsBoolean()
+  public isTrending?: boolean;
+
+  @IsBoolean()
+  public isFavourite?: boolean;
 }

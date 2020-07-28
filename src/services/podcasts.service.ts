@@ -2,13 +2,15 @@ import { PodcastsInterface } from '../interfaces/podcasts.interface';
 import podcastModel from '../models/podcasts.model';
 import { isEmptyObject } from '../utils/util';
 import HttpException from '../exceptions/HttpException';
-import { CreatePodcastDto } from '../dtos/podcasts.dto';
+import { CreatePodcastDto, FindPodcastDto } from '../dtos/podcasts.dto';
 
 class PodcastService {
   private podcast = podcastModel;
 
-  public async findAllPodcasts(): Promise<PodcastsInterface[]> {
-    return this.podcast.find({});
+  public async findAllPodcasts(
+    filters: FindPodcastDto = {}
+  ): Promise<PodcastsInterface[]> {
+    return this.podcast.find(filters);
   }
 
   public async createPodcast(
