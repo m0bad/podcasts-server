@@ -74,10 +74,9 @@ class App {
       useFindAndModify: false
     };
 
-    mongoose.connect(
-      `mongodb://${MONGO_PATH}/${MONGO_DATABASE}`,
-      { ...options }
-    );
+    mongoose.connect(`mongodb://${MONGO_PATH}/${MONGO_DATABASE}`, {
+      ...options
+    });
   }
 }
 

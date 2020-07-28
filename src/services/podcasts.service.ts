@@ -11,15 +11,23 @@ class PodcastService {
     return this.podcast.find({});
   }
 
-  public async createPodcast(podcastData: CreatePodcastDto): Promise<PodcastsInterface> {
-    if (isEmptyObject(podcastData)) throw new HttpException(400, "Podcast Data is incorrect");
+  public async createPodcast(
+    podcastData: CreatePodcastDto
+  ): Promise<PodcastsInterface> {
+    if (isEmptyObject(podcastData))
+      throw new HttpException(400, 'Podcast Data is incorrect');
 
-    const foundPodcast: PodcastsInterface = await this.podcast.findOne({ title: podcastData.title });
-    if (foundPodcast) throw new HttpException(409, `A podcast with the same title '${podcastData.title}' already exists`);
+    const foundPodcast: PodcastsInterface = await this.podcast.findOne({
+      title: podcastData.title
+    });
+    if (foundPodcast)
+      throw new HttpException(
+        409,
+        `A podcast with the same title '${podcastData.title}' already exists`
+      );
 
     return await this.podcast.create(podcastData);
   }
-
 }
 
 export default PodcastService;

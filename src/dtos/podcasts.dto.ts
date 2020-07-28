@@ -2,14 +2,14 @@ import { IsNumber, IsString } from 'class-validator';
 
 export class CreatePodcastDto {
   @IsString()
-  public title: string
+  public title: string;
 
   @IsString()
-  public audioUrl: string
+  public audioUrl: string;
 
   @IsString()
-  public imageUrl: string
+  public imageUrl: string;
 
   @IsNumber()
-  public numOfListeners?: number
+  public numOfListeners?: number;
 }
