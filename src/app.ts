@@ -75,7 +75,7 @@ class App {
     };
 
     mongoose.connect(
-      `mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}/${MONGO_DATABASE}?authSource=admin`,
+      `mongodb://${MONGO_PATH}/${MONGO_DATABASE}`,
       { ...options }
     );
   }

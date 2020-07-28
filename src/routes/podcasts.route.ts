@@ -1,17 +1,18 @@
 import { Router } from 'express';
 import Route from '../interfaces/routes.interface';
-import validationMiddleware from '../middlewares/validation.middleware';
+import PodcastsController from "../controllers/podcasts.controller";
 
 class PodcastsRoute implements Route {
     public path = '/podcasts';
     public router = Router();
+    public podcastsController = new PodcastsController();
 
     constructor() {
         this.initializeRoutes();
     }
 
     private initializeRoutes() {
-        this.router.get(`${this.path}`, () => console.log('Podcasts Route'));
+        this.router.get(`${this.path}`, this.podcastsController.getAllPodcasts);
     }
 }
 
