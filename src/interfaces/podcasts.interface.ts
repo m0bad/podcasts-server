@@ -1,8 +1,9 @@
 export interface PodcastsInterface {
     _id: string;
     title: string;
-    numOfListeners: number;
+    numOfListeners?: number;
     audioUrl: string;
     imageUrl: string;
-    createdAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

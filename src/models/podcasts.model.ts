@@ -5,9 +5,13 @@ const podcastSchema = new mongoose.Schema({
     title: String,
     audioUrl: String,
     imageUrl: String,
-    numOfListeners: Number,
-    createdAt: Date,
-});
+    numOfListeners: {
+        type: Number,
+        default: 0
+    },
+},
+  {timestamps: true}
+  );
 
 const podcastModel = mongoose.model<PodcastsInterface & mongoose.Document>('Podcast', podcastSchema);
 
