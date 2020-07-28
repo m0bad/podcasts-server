@@ -4,6 +4,9 @@ export interface PodcastsInterface {
   numOfListeners?: number;
   audioUrl: string;
   imageUrl: string;
+  isFeatured?: boolean,
+  isTrending?: boolean,
+  isFavourite?: boolean,
   createdAt?: Date;
   updatedAt?: Date;
 }

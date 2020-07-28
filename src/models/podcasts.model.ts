@@ -9,7 +9,10 @@ const podcastSchema = new mongoose.Schema(
     numOfListeners: {
       type: Number,
       default: 0
-    }
+    },
+    isFeatured: { type: Boolean, default: false },
+    isTrending: { type: Boolean, default: false },
+    isFavourite: { type: Boolean, default: false }
   },
   { timestamps: true }
 );
